@@ -90,11 +90,11 @@ fn expand_as_gd_res(input: DeriveInput) -> proc_macro2::TokenStream {
                     #( #unit_variants , )*
                 }
 
-                impl AsSimpleGdEnum for #name {
+                impl ::as_gd_res::AsSimpleGdEnum for #name {
                     type GdEnumType = #res_name;
                 }
 
-                impl ExtractGd for #res_name {
+                impl ::as_gd_res::ExtractGd for #res_name {
                     type Extracted = #name;
                     fn extract(&self) -> Self::Extracted {
                         (*self).into()

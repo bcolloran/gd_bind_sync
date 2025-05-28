@@ -26,11 +26,11 @@ fn test_simple_enum() {
             Earth,
             Air,
         }
-        impl AsSimpleGdEnum for Element {
+        impl ::as_gd_res::AsSimpleGdEnum for Element {
             type GdEnumType = ElementAsGdEnum;
         }
 
-        impl ExtractGd for ElementAsGdEnum {
+        impl ::as_gd_res::ExtractGd for ElementAsGdEnum {
             type Extracted = Element;
             fn extract(&self) -> Self::Extracted {
                 (*self).into()

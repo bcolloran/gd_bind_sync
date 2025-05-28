@@ -56,7 +56,7 @@ fn test_simple() {
           pub b: <f32 as ::as_gd_res::AsGdRes>::ResType,
       }
 
-      impl ExtractGd for SimpleStructParamsResource {
+      impl ::as_gd_res::ExtractGd for SimpleStructParamsResource {
           type Extracted = SimpleStructParams;
           fn extract(&self) -> Self::Extracted {
               Self::Extracted {
@@ -110,7 +110,7 @@ fn test_2() {
                 pub coin_scene_2: <OnEditorInit<PackedScenePath> as ::as_gd_res::AsGdRes>::ResType,
             }
 
-            impl ExtractGd for DropParams2Resource {
+            impl ::as_gd_res::ExtractGd for DropParams2Resource {
                 type Extracted = DropParams2;
                 fn extract(&self) -> Self::Extracted {
                     Self::Extracted {
@@ -172,7 +172,7 @@ fn test_attr_pass_through() {
           pub coin_scene_2: <OnEditorInit<PackedScenePath> as ::as_gd_res::AsGdRes>::ResType,
       }
 
-      impl ExtractGd for DropParams2Resource {
+      impl ::as_gd_res::ExtractGd for DropParams2Resource {
           type Extracted = DropParams2;
           fn extract(&self) -> Self::Extracted {
               Self::Extracted {
@@ -273,7 +273,7 @@ fn test_enum_with_data_variants() {
             type GdArray = ::godot::prelude::Array<PickupResource>;
         }
 
-        impl ExtractGd for dyn PickupResourceExtractVariant {
+        impl ::as_gd_res::ExtractGd for dyn PickupResourceExtractVariant {
             type Extracted = Pickup;
             fn extract(&self) -> Self::Extracted {
                 self.extract_enum_variant()
@@ -352,7 +352,7 @@ fn test_complex_nested_struct() {
             pub damage_team: <DamageTeam as ::as_gd_res::AsGdRes>::ResType,
         }
 
-        impl ExtractGd for EnemyParamsResource {
+        impl ::as_gd_res::ExtractGd for EnemyParamsResource {
             type Extracted = EnemyParams;
             fn extract(&self) -> Self::Extracted {
                 Self::Extracted {

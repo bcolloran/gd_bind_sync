@@ -62,7 +62,7 @@ fn expand_as_gd_res(input: DeriveInput) -> proc_macro2::TokenStream {
                     #(#defs)*
                 }
 
-                impl ExtractGd for #res_name {
+                impl ::as_gd_res::ExtractGd for #res_name {
                     type Extracted = #name;
                     fn extract(&self) -> Self::Extracted {
                         Self::Extracted {
@@ -145,7 +145,7 @@ fn expand_as_gd_res(input: DeriveInput) -> proc_macro2::TokenStream {
                         type GdArray = ::godot::prelude::Array<#res_name>;
                     }
 
-                    impl ExtractGd for dyn #dyn_trait {
+                    impl ::as_gd_res::ExtractGd for dyn #dyn_trait {
                         type Extracted = #name;
                         fn extract(&self) -> Self::Extracted {
                             self.extract_enum_variant()
